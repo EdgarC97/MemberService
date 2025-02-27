@@ -18,9 +18,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-      - DB_CONNECTION=Server=db,1433;Database=MemberService_1;User Id=sa;Password=Riwi2025**;TrustServerCertificate=True;
+    env_file:
+      - .env.production
     ports:
       - "8080:8080"
     depends_on:

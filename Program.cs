@@ -55,6 +55,7 @@ var app = builder.Build();
     {
         var services = scope.ServiceProvider;
         var dbContext = services.GetRequiredService<MemberDbContext>();
+        dbContext.Database.EnsureDeleted();
         dbContext.Database.Migrate();
     }
 //}
